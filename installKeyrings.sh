@@ -8,7 +8,8 @@ sudo pacman -U --noconfirm --needed \
 	chaotic-keyring-20230616-1-any.pkg.tar.zst \
 	chaotic-mirrorlist-20240130-1-any.pkg.tar.zst \
 	endeavouros-keyring-20231222-1-any.pkg.tar.zst \
-	endeavouros-mirrorlist-24.2-1-any.pkg.tar.zst
+	endeavouros-mirrorlist-24.2-1-any.pkg.tar.zst \
+	archcraft-mirrorlist-2.0-2-any.pkg.tar.zst
 
 echo "Installation complete."
 
@@ -78,4 +79,23 @@ if ! grep -q "\[garuda\]" /etc/pacman.conf; then
 	echo "Garuda repository has been added to pacman.conf."
 else
 	echo "Garuda repository already exists in pacman.conf."
+fi
+
+echo
+echo
+
+echo "checking if archcraft repo is present or not"
+
+#!/bin/bash
+
+# Define the configuration to be added
+CONFIG_archcraft="[archcraft]\nSigLevel = Optional TrustAll\nInclude = /etc/pacman.d/archcraft-mirrorlist\n"
+
+# Check if the configuration already exists in pacman.conf
+if ! grep -q "\[archcraft\]" /etc/pacman.conf; then
+	# If it doesn't exist, append the configuration to pacman.conf
+	echo -e "$CONFIG_archcraft" | sudo tee -a /etc/pacman.conf >/dev/null
+	echo "Archcraft repository has been added to pacman.conf."
+else
+	echo "Archcraft repository already exists in pacman.conf."
 fi
