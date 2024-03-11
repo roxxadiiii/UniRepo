@@ -99,3 +99,9 @@ if ! grep -q "\[archcraft\]" /etc/pacman.conf; then
 else
 	echo "Archcraft repository already exists in pacman.conf."
 fi
+
+echo
+echo
+echo
+
+echo "OPTIONAL - UNCOMMENT THE CORE-TESTING REPO AND EXTRA-TESTING REPO FROM /etc/pacman.conf"
