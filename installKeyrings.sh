@@ -9,7 +9,9 @@ sudo pacman -U --noconfirm --needed \
 	chaotic-mirrorlist-20240130-1-any.pkg.tar.zst \
 	endeavouros-keyring-20231222-1-any.pkg.tar.zst \
 	endeavouros-mirrorlist-24.2-1-any.pkg.tar.zst \
-	archcraft-mirrorlist-2.0-2-any.pkg.tar.zst
+	archcraft-mirrorlist-2.0-2-any.pkg.tar.zst \
+  arcolinux-keyring-20251209-3-any.pkg.tar.zst \
+  arcolinux-mirrorlist-git-24.03-12-any.pkg.tar.zst 
 
 echo "Installation complete."
 
@@ -103,5 +105,68 @@ fi
 echo
 echo
 echo
+
+#!/bin/bash
+
+# Define the path to the pacman.conf file
+PACMAN_CONF="/etc/pacman.conf"
+
+echo ""Check if the arcolinux_repo entry already exists in pacman.config"
+echo 
+echo 
+
+if ! grep -q "\[arcolinux_repo\]" $PACMAN_CONF; then
+    # If the repo is not found, append it to pacman.conf
+    echo "Adding arcolinux_repo to $PACMAN_CONF..."
+    {
+        echo -e "\n[arcolinux_repo]"
+        echo "SigLevel = Optional TrustedOnly"
+        echo "Include = /etc/pacman.d/arcolinux-mirrorlist"
+    } | sudo tee -a $PACMAN_CONF > /dev/null
+
+    echo "arcolinux_repo has been added to $PACMAN_CONF."
+else
+    echo "The arcolinux_repo is already present in $PACMAN_CONF."
+fi
+
+echo 
+echo 
+
+echo "Check if the arcolinux_repo_3party entry already exists in pacman.conf"
+echo 
+echo 
+if ! grep -q "\[arcolinux_repo_3party\]" $PACMAN_CONF; then
+    # If the repo is not found, append it to pacman.conf
+    echo "Adding arcolinux_repo_3party to $PACMAN_CONF..."
+    {
+        echo -e "\n[arcolinux_repo_3party]"
+        echo "SigLevel = Optional TrustedOnly"
+        echo "Include = /etc/pacman.d/arcolinux-mirrorlist"
+    } | sudo tee -a $PACMAN_CONF > /dev/null
+
+    echo "arcolinux_repo_3party has been added to $PACMAN_CONF."
+else
+    echo "The arcolinux_repo_3party is already present in $PACMAN_CONF."
+fi 
+
+echo 
+echo 
+
+echo "Check if the arcolinux_repo_xlarge entry already exists in pacman.conf"
+echo 
+echo 
+if ! grep -q "\[arcolinux_repo_xlarge\]" $PACMAN_CONF; then
+    # Repository not found, append it to pacman.conf
+    echo "Adding arcolinux_repo_xlarge to $PACMAN_CONF..."
+    {
+        echo -e "\n[arcolinux_repo_xlarge]"
+        echo "SigLevel = Optional TrustedOnly"
+        echo "Include = /etc/pacman.d/arcolinux-mirrorlist"
+    } | sudo tee -a $PACMAN_CONF > /dev/null
+
+    echo "arcolinux_repo_xlarge has been added to $PACMAN_CONF."
+else
+    echo "The arcolinux_repo_xlarge is already present in $PACMAN_CONF."
+fi 
 
 echo "OPTIONAL - UNCOMMENT THE CORE-TESTING REPO AND EXTRA-TESTING REPO FROM /etc/pacman.conf"
