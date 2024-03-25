@@ -1,6 +1,28 @@
 !/bin/bash
 
-echo "Installing RebornOS and Chaotic keyrings and mirrorlists..."
+
+#INSTALLING PACKAGES
+#
+cat <<"EOF"
+
+░▀█▀░▒█▄░▒█░▒█▀▀▀█░▀▀█▀▀░█▀▀▄░▒█░░░░▒█░░░░▀█▀░▒█▄░▒█░▒█▀▀█░░
+░▒█░░▒█▒█▒█░░▀▀▀▄▄░░▒█░░▒█▄▄█░▒█░░░░▒█░░░░▒█░░▒█▒█▒█░▒█░▄▄░░
+░▄█▄░▒█░░▀█░▒█▄▄▄█░░▒█░░▒█░▒█░▒█▄▄█░▒█▄▄█░▄█▄░▒█░░▀█░▒█▄▄▀░░
+
+░▒█░▄▀░▒█▀▀▀░▒█░░▒█░▒█▀▀▄░▀█▀░▒█▄░▒█░▒█▀▀█░▒█▀▀▀█
+░▒█▀▄░░▒█▀▀▀░▒▀▄▄▄▀░▒█▄▄▀░▒█░░▒█▒█▒█░▒█░▄▄░░▀▀▀▄▄
+░▒█░▒█░▒█▄▄▄░░░▒█░░░▒█░▒█░▄█▄░▒█░░▀█░▒█▄▄▀░▒█▄▄▄█
+
+░█▀▀▄░▒█▄░▒█░▒█▀▀▄░░
+▒█▄▄█░▒█▒█▒█░▒█░▒█░░
+▒█░▒█░▒█░░▀█░▒█▄▄█░░
+
+░▒█▀▀█░█▀▀▄░▒█▀▀▄░▒█░▄▀░█▀▀▄░▒█▀▀█░▒█▀▀▀░▒█▀▀▀█
+░▒█▄▄█▒█▄▄█░▒█░░░░▒█▀▄░▒█▄▄█░▒█░▄▄░▒█▀▀▀░░▀▀▀▄▄
+░▒█░░░▒█░▒█░▒█▄▄▀░▒█░▒█▒█░▒█░▒█▄▄▀░▒█▄▄▄░▒█▄▄▄█
+
+
+EOF 
 
 sudo pacman -U --noconfirm --needed \
 	rebornos-keyring-20231128-1-any.pkg.tar.zst \
@@ -17,6 +39,15 @@ echo "Installation complete."
 
 echo
 echo
+
+cat <<"EOF"
+
+░▒█▀▀▄░▒█░▒█░█▀▀▄░▒█▀▀▀█░▀▀█▀▀░▀█▀░▒█▀▀▄░░░░█▀▀▄░▒█░▒█░▒█▀▀▄
+░▒█░░░░▒█▀▀█▒█▄▄█░▒█░░▒█░░▒█░░░▒█░░▒█░░░░▀▀▒█▄▄█░▒█░▒█░▒█▄▄▀
+░▒█▄▄▀░▒█░▒█▒█░▒█░▒█▄▄▄█░░▒█░░░▄█▄░▒█▄▄▀░░░▒█░▒█░░▀▄▄▀░▒█░▒█
+
+
+EOF 
 
 # Define the configuration to be added
 CONFIG_chaotic="[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n"
@@ -35,7 +66,16 @@ fi
 echo
 echo
 
-echo "checking if endeavouros is present in pacman.conf file"
+cat <<"EOF"
+
+░▒█▀▀▀░▒█▄░▒█░▒█▀▀▄░▒█▀▀▀░█▀▀▄░▒█░░▒█░▒█▀▀▀█░▒█░▒█░▒█▀▀▄░░░▒█▀▀▀█░▒█▀▀▀█░░░▒█▀▀▄░▒█▀▀▀░▒█▀▀█░▒█▀▀▀█
+░▒█▀▀▀░▒█▒█▒█░▒█░▒█░▒█▀▀▀▒█▄▄█░░▒█▒█░░▒█░░▒█░▒█░▒█░▒█▄▄▀░░░▒█░░▒█░░▀▀▀▄▄░░░▒█▄▄▀░▒█▀▀▀░▒█▄▄█░▒█░░▒█
+░▒█▄▄▄░▒█░░▀█░▒█▄▄█░▒█▄▄▄▒█░▒█░░░▀▄▀░░▒█▄▄▄█░░▀▄▄▀░▒█░▒█░░░▒█▄▄▄█░▒█▄▄▄█░░░▒█░▒█░▒█▄▄▄░▒█░░░░▒█▄▄▄█
+
+
+EOF 
+
+
 
 # Define the configuration to be added
 CONFIG_eos="[endeavouros]\nSigLevel = PackageRequired\nInclude = /etc/pacman.d/endeavouros-mirrorlist\n"
@@ -52,7 +92,14 @@ fi
 echo
 echo
 
-echo "checking if rebornOS is present in pacman.conf file"
+Cat <<"EOF"
+
+░▒█▀▀▄░▒█▀▀▀░▒█▀▀▄░▒█▀▀▀█░▒█▀▀▄░▒█▄░▒█░░░▒█▀▀▀█░▒█▀▀▀█░░░▒█▀▀▄░▒█▀▀▀░▒█▀▀█░▒█▀▀▀█
+░▒█▄▄▀░▒█▀▀▀░▒█▀▀▄░▒█░░▒█░▒█▄▄▀░▒█▒█▒█░░░▒█░░▒█░░▀▀▀▄▄░░░▒█▄▄▀░▒█▀▀▀░▒█▄▄█░▒█░░▒█
+░▒█░▒█░▒█▄▄▄░▒█▄▄█░▒█▄▄▄█░▒█░▒█░▒█░░▀█░░░▒█▄▄▄█░▒█▄▄▄█░░░▒█░▒█░▒█▄▄▄░▒█░░░░▒█▄▄▄█
+
+
+EOF 
 
 # Define the configuration to be added
 CONFIG_ros="[Reborn-OS]\nInclude = /etc/pacman.d/reborn-mirrorlist\n"
@@ -69,7 +116,14 @@ fi
 echo
 echo
 
-echo "checking if garuda is present or not"
+cat <<"EOF"
+
+░▒█▀▀█░█▀▀▄░▒█▀▀▄░▒█░▒█░▒█▀▀▄░█▀▀▄░░░▒█▀▀▄░▒█▀▀▀░▒█▀▀█░▒█▀▀▀█
+░▒█░▄▄▒█▄▄█░▒█▄▄▀░▒█░▒█░▒█░▒█▒█▄▄█░░░▒█▄▄▀░▒█▀▀▀░▒█▄▄█░▒█░░▒█
+░▒█▄▄▀▒█░▒█░▒█░▒█░░▀▄▄▀░▒█▄▄█▒█░▒█░░░▒█░▒█░▒█▄▄▄░▒█░░░░▒█▄▄▄█
+
+
+EOF 
 
 # Define the configuration to be added
 CONFIG_garuda="[garuda]\nSigLevel = Required DatabaseOptional\nInclude = /etc/pacman.d/chaotic-mirrorlist\n"
@@ -86,9 +140,16 @@ fi
 echo
 echo
 
-echo "checking if archcraft repo is present or not"
 
-#!/bin/bash
+
+cat <<"EOF"
+
+░█▀▀▄░▒█▀▀▄░▒█▀▀▄░▒█░▒█░▒█▀▀▄░▒█▀▀▄░█▀▀▄░▒█▀▀▀░▀▀█▀▀░░░▒█▀▀▄░▒█▀▀▀░▒█▀▀█░▒█▀▀▀█
+▒█▄▄█░▒█▄▄▀░▒█░░░░▒█▀▀█░▒█░░░░▒█▄▄▀▒█▄▄█░▒█▀▀░░░▒█░░░░░▒█▄▄▀░▒█▀▀▀░▒█▄▄█░▒█░░▒█
+▒█░▒█░▒█░▒█░▒█▄▄▀░▒█░▒█░▒█▄▄▀░▒█░▒█▒█░▒█░▒█░░░░░▒█░░░░░▒█░▒█░▒█▄▄▄░▒█░░░░▒█▄▄▄█
+
+
+EOF 
 
 # Define the configuration to be added
 CONFIG_archcraft="[archcraft]\nSigLevel = Optional TrustAll\nInclude = /etc/pacman.d/archcraft-mirrorlist\n"
@@ -106,12 +167,20 @@ echo
 echo
 echo
 
-#!/bin/bash
+cat <<"EOF"
+
+░█▀▀▄░▒█▀▀▄░▒█▀▀▄░▒█▀▀▀█░▒█░░░░▀█▀░▒█▄░▒█░▒█░▒█░▀▄░▄▀░░░▒█▀▀▄░▒█▀▀▀░▒█▀▀█░▒█▀▀▀█
+▒█▄▄█░▒█▄▄▀░▒█░░░░▒█░░▒█░▒█░░░░▒█░░▒█▒█▒█░▒█░▒█░░▒█░░░░░▒█▄▄▀░▒█▀▀▀░▒█▄▄█░▒█░░▒█
+▒█░▒█░▒█░▒█░▒█▄▄▀░▒█▄▄▄█░▒█▄▄█░▄█▄░▒█░░▀█░░▀▄▄▀░▄▀▒▀▄░░░▒█░▒█░▒█▄▄▄░▒█░░░░▒█▄▄▄█
+
+
+EOF 
+
 
 # Define the path to the pacman.conf file
 PACMAN_CONF="/etc/pacman.conf"
 
-echo ""Check if the arcolinux_repo entry already exists in pacman.config"
+
 echo 
 echo 
 
@@ -132,7 +201,16 @@ fi
 echo 
 echo 
 
-echo "Check if the arcolinux_repo_3party entry already exists in pacman.conf"
+cat <<"EOF"
+
+░█▀▀▄░▒█▀▀▄░▒█▀▀▄░▒█▀▀▀█░▒█░░░░▀█▀░▒█▄░▒█░▒█░▒█░▀▄░▄▀░░░▒█▀▀▄░▒█▀▀▀░▒█▀▀█░▒█▀▀▀█░░░█▀▀█░▄▀▀▄░█▀▀▄░█▀▀▄░▀█▀░█░░█
+▒█▄▄█░▒█▄▄▀░▒█░░░░▒█░░▒█░▒█░░░░▒█░░▒█▒█▒█░▒█░▒█░░▒█░░░░░▒█▄▄▀░▒█▀▀▀░▒█▄▄█░▒█░░▒█░░░░▒▀▄░█▄▄█░█▄▄█░█▄▄▀░░█░░█▄▄█
+▒█░▒█░▒█░▒█░▒█▄▄▀░▒█▄▄▄█░▒█▄▄█░▄█▄░▒█░░▀█░░▀▄▄▀░▄▀▒▀▄░░░▒█░▒█░▒█▄▄▄░▒█░░░░▒█▄▄▄█░░░█▄▄█░█░░░░▀░░▀░▀░▀▀░░▀░░▄▄▄▀
+
+
+EOF 
+
+
 echo 
 echo 
 if ! grep -q "\[arcolinux_repo_3party\]" $PACMAN_CONF; then
@@ -152,7 +230,16 @@ fi
 echo 
 echo 
 
-echo "Check if the arcolinux_repo_xlarge entry already exists in pacman.conf"
+cat <<"EOF"
+
+░█▀▀▄░▒█▀▀▄░▒█▀▀▄░▒█▀▀▀█░▒█░░░░▀█▀░▒█▄░▒█░▒█░▒█░▀▄░▄▀░░░▒█▀▀▄░▒█▀▀▀░▒█▀▀█░▒█▀▀▀█░░░█░█░█░░█▀▀▄░█▀▀▄░█▀▀▀░█▀▀
+▒█▄▄█░▒█▄▄▀░▒█░░░░▒█░░▒█░▒█░░░░▒█░░▒█▒█▒█░▒█░▒█░░▒█░░░░░▒█▄▄▀░▒█▀▀▀░▒█▄▄█░▒█░░▒█░░░▄▀▄░█░░█▄▄█░█▄▄▀░█░▀▄░█▀▀
+▒█░▒█░▒█░▒█░▒█▄▄▀░▒█▄▄▄█░▒█▄▄█░▄█▄░▒█░░▀█░░▀▄▄▀░▄▀▒▀▄░░░▒█░▒█░▒█▄▄▄░▒█░░░░▒█▄▄▄█░░░▀░▀░▀▀░▀░░▀░▀░▀▀░▀▀▀▀░▀▀▀
+
+
+EOF 
+
+
 echo 
 echo 
 if ! grep -q "\[arcolinux_repo_xlarge\]" $PACMAN_CONF; then
@@ -169,4 +256,3 @@ else
     echo "The arcolinux_repo_xlarge is already present in $PACMAN_CONF."
 fi 
 
-echo "OPTIONAL - UNCOMMENT THE CORE-TESTING REPO AND EXTRA-TESTING REPO FROM /etc/pacman.conf"
