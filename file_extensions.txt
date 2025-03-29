@@ -1,8 +1,0 @@
-idx
-md
-pack
-rev
-sample
-sh
-txt
-zst
