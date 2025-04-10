@@ -64,3 +64,15 @@ if ! grep -q "\[arcolinux_repo\]" $PACMAN_CONF; then
 else
 	echo "The arcolinux_repo is already present in $PACMAN_CONF."
 fi
+
+cat << "EOF"
+
+ _____ _      ____ 
+/  __// \  /|/  _ \
+|  \  | |\ ||| | \|
+|  /_ | | \||| |_/|
+\____\\_/  \|\____/
+
+
+EOF
+
