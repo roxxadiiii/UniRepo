@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# Define the path to the pacman.conf file
+PACMAN_CONF="/etc/pacman.conf"
 cat << "EOF"
 
  █████╗ ██████╗  ██████╗ ██████╗ ██╗     ██╗███╗   ██╗██╗   ██╗██╗  ██╗     ██████╗ ███████╗██████╗  ██████╗ 
@@ -10,7 +11,7 @@ cat << "EOF"
 ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝     ╚═╝  ╚═╝╚══════╝╚═╝      ╚═════╝ 
                                                                                                              
 EOF
-
+sleep 1
 cat << "EOF"
 
  _  _      ____  _____  ____  _     _     _  _      _____   _  __ ________  _ ____  _  _      _____ ____ 
@@ -23,5 +24,43 @@ cat << "EOF"
 EOF
 
 sudo pacman -U --noconfirm --needed https://ant.seedhost.eu/arcolinux/arcolinux_repo/x86_64/arcolinux-keyring-20251209-3-any.pkg.tar.zst
+sleep 1
+cat << "EOF"
+
+ _  _      ____  _____  ____  _     _     _  _      _____   _      _  ____  ____  ____  ____  _     _  ____  _____ 
+/ \/ \  /|/ ___\/__ __\/  _ \/ \   / \   / \/ \  /|/  __/  / \__/|/ \/  __\/  __\/  _ \/  __\/ \   / \/ ___\/__ __\
+| || |\ |||    \  / \  | / \|| |   | |   | || |\ ||| |  _  | |\/||| ||  \/||  \/|| / \||  \/|| |   | ||    \  / \  
+| || | \||\___ |  | |  | |-||| |_/\| |_/\| || | \||| |_//  | |  ||| ||    /|    /| \_/||    /| |_/\| |\___ |  | |  
+\_/\_/  \|\____/  \_/  \_/ \|\____/\____/\_/\_/  \|\____\  \_/  \|\_/\_/\_\\_/\_\\____/\_/\_\\____/\_/\____/  \_/  
+                                                                                                                   
+
+EOF
+
+sudo pacman -U --noconfirm --needed https://ant.seedhost.eu/arcolinux/arcolinux_repo/x86_64/arcolinux-mirrorlist-git-24.03-12-any.pkg.tar.zst
+
+sleep 1
+
+cat << "EOF"
+
+ _     ____  ____  ____  _____  _  _      _____   ____  ____  ____  _      ____  _        ____  ____  _      _____
+/ \ /\/  __\/  _ \/  _ \/__ __\/ \/ \  /|/  __/  /  __\/  _ \/   _\/ \__/|/  _ \/ \  /|  /   _\/  _ \/ \  /|/    /
+| | |||  \/|| | \|| / \|  / \  | || |\ ||| |  _  |  \/|| / \||  /  | |\/||| / \|| |\ ||  |  /  | / \|| |\ |||  __\
+| \_/||  __/| |_/|| |-||  | |  | || | \||| |_//  |  __/| |-|||  \_ | |  ||| |-||| | \||__|  \_ | \_/|| | \||| |   
+\____/\_/   \____/\_/ \|  \_/  \_/\_/  \|\____\  \_/   \_/ \|\____/\_/  \|\_/ \|\_/  \|\/\____/\____/\_/  \|\_/   
 
 
+EOF
+
+if ! grep -q "\[arcolinux_repo\]" $PACMAN_CONF; then
+	# If the repo is not found, append it to pacman.conf
+	echo "Adding arcolinux_repo to $PACMAN_CONF..."
+	{
+		echo -e "\n[arcolinux_repo]"
+		echo "SigLevel = Optional TrustedOnly"
+		echo "Include = /etc/pacman.d/arcolinux-mirrorlist"
+	} | sudo tee -a $PACMAN_CONF >/dev/null
+
+	echo "arcolinux_repo has been added to $PACMAN_CONF."
+else
+	echo "The arcolinux_repo is already present in $PACMAN_CONF."
+fi
